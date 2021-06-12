@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js';
 
-export default class Cipher {
+export class Cipher {
     constructor(key) {
         this.key = key;
     }
@@ -21,4 +21,8 @@ export default class Cipher {
     decryptBody = function(encryptedBody) {
         return JSON.parse(this.decrypt(encryptedBody));
     }
+}
+
+export const cipherInstance = (key) => {
+    return new Cipher(key);
 }
