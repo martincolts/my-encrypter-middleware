@@ -1,6 +1,6 @@
 {
   "name": "my-encrypter-middleware",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "encrypter for server and client",
   "main": "index.js",
   "type": "module",
