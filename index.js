@@ -44,3 +44,5 @@ const bodyEnc = cipher.encryptBody(object);
 console.log(bodyEnc);
 const bodyDec = cipher.decryptBody(bodyEnc);
 console.log(bodyDec);
+
+export * from './cipher/cipher.js'
