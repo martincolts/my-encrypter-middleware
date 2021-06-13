@@ -1,6 +1,6 @@
 
 import assert from 'assert';
-import { cipherInstance } from '../src/cipher/cipher.js';
+import { cipherInstance } from '../../src/cipher/cipher.js';
 
 describe('Cipher test', async () => {
   it('it should encrypt and cecrypt correctly', async () => {
@@ -21,7 +21,7 @@ describe('Cipher test', async () => {
     //given:
     const valueToEncypt = 'hello workd';
     const cipher = cipherInstance('key');
-    const cipherWithOtherKey = cipherInstance('otherKey');
+    const cipherWithOtherKey = cipherInstance('another key to this instance');
 
     //when:
     const valueEncrypted = cipher.encrypt(valueToEncypt);
