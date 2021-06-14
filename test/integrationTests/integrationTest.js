@@ -43,7 +43,7 @@ describe("Middleware", () => {
         it("should fail, body is not encrypted", (done) => {
 
             // given:
-            var messageExpected = 'Decryption error: the body was not properly encrypted';
+            var messageExpected = {'error': 'Decryption error: the body was not properly encrypted'};
             var objectToSend = 'not encrypted';
 
             // when:
@@ -55,8 +55,8 @@ describe("Middleware", () => {
                     // then:
 
                     expect(err).to.be.null;
-                    expect(res).to.have.status(200);
-                    res.body.should.be.eql({'error': messageExpected});
+                    expect(res).to.have.status(400);
+                    res.body.should.be.eql(messageExpected);
                     done();
                 });
         });

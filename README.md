@@ -2,13 +2,23 @@
 
 The goal of this library is to provide a mechanism to transfer encrypted data through the net, to do that it provides tools to encrypt the **body** and also a **middleware** to decrypt in an express application.
 
+This library uses AES (Advanced Encryption Standard) for encryption.
+
+## Instalation
+
+You can install this library with ```npm``` executing
+
+```sh
+npm install --save my-encrypter-middleware
+```
+
 ## Middleware
 
 ### How to use it.
 
 The middleware is going to decrypt the data if we send it in a body within a ```data``` field. Example:
 
-```
+```js
 {
     'data': 'encrypted body hash'
 }
@@ -24,11 +34,7 @@ import { middleware } from 'my-encrypter-middleware';
 const app = express();
 const port = 3000;
 
-app.use(express.urlencoded({
-    extended: true
-}));
 app.use(express.json());
-app.use(express.text());
 
 app.use(middleware('my key'));
 

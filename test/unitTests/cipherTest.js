@@ -30,4 +30,31 @@ describe('Cipher test', async () => {
     //then:
     assert.notEqual(valueToEncypt, valueDecrypted);
   });
+
+  it('it should encrypt and cecrypt correctly overwriting key', async () => {
+    //given:
+    const valueToEncypt = 'hello workd';
+    const cipher = cipherInstance('key');
+    const cipherWithOtherKey = cipherInstance('another key to this instance');
+
+    //when:
+    const valueEncrypted = cipher.encrypt(valueToEncypt, 'key');
+    const valueDecrypted = cipherWithOtherKey.decrypt(valueEncrypted);
+
+    //then:
+    assert.notEqual(valueToEncypt, valueDecrypted);
+  });
+
+  it('it shoule miss encryption with decryption overwriting key', async () => {
+    //given:
+    const valueToEncypt = 'hello workd';
+    const cipher = cipherInstance('key');
+
+    //when:
+    const valueEncrypted = cipher.encrypt(valueToEncypt, 'other key to encrypt');
+    const valueDecrypted = cipher.decrypt(valueEncrypted);
+
+    //then:
+    assert.notEqual(valueToEncypt, valueDecrypted);
+  });
 });

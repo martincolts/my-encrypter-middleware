@@ -5,8 +5,9 @@ export class Cipher {
         this.key = key;
     }
 
-    encrypt = function (value) {
-        return CryptoJS.AES.encrypt(value, this.key).toString();
+    encrypt = function (value, key) {
+        const keyToUse = key || this.key; 
+        return CryptoJS.AES.encrypt(value, keyToUse).toString();
     }
 
     decrypt = function (encryption) {
@@ -14,8 +15,9 @@ export class Cipher {
         return bytes.toString(CryptoJS.enc.Utf8);
     }
 
-    encryptBody = function(body) {
-        return this.encrypt(JSON.stringify(body));
+    encryptBody = function(body, key) {
+        const keyToUse = key || this.key;
+        return this.encrypt(JSON.stringify(body), keyToUse);
     }
 
     decryptBody = function(encryptedBody) {
