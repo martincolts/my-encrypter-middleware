@@ -15,12 +15,12 @@ export class Cipher {
         return bytes.toString(CryptoJS.enc.Utf8);
     }
 
-    encryptBody = function(body, key) {
+    encryptBody = function (body, key) {
         const keyToUse = key || this.key;
         return this.encrypt(JSON.stringify(body), keyToUse);
     }
 
-    decryptBody = function(encryptedBody) {
+    decryptBody = function (encryptedBody) {
         return JSON.parse(this.decrypt(encryptedBody));
     }
 }
