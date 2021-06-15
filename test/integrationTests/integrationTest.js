@@ -11,6 +11,13 @@ chai.should();
 var expect = chai.expect;
 
 describe("Middleware", () => {
+    let server;
+    before((done) => {
+        server = app.listen(3000, done);
+    })
+    after((done) => {
+        server.close(done);
+    })
     describe("POST /", () => {
 
         it("should send and decrypt the body", (done) => {

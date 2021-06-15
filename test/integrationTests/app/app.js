@@ -13,8 +13,4 @@ app.post('/', (req, res) => {
     res.send(req.body);
 });
 
-app.listen(port, () => {
-    console.log(`Application started in port ${port}`)
-});
-
-export { app };
+export { app }
